@@ -7,18 +7,18 @@ import BookTable from "./BookTable";
 import AddBookModal from "./AddBookButton";
 import Loading from "./Loading";
 
-const AuthorDetail = props => {
-  const authorID = useParams().authorID;
+const AuthorDetail = ({ authors, books, loading }) => {
+  const { authorID } = useParams();
 
-  if (props.loading) return <Loading />;
+  if (loading) return <Loading />;
 
-  const author = props.authors.find(author => author.id === +authorID);
+  const author = authors.find((author) => author.id === +authorID);
 
   if (!author) return <Redirect to="/" />;
 
   const authorName = `${author.first_name} ${author.last_name}`;
-  const authorBooks = props.books.filter(book =>
-    book.authors.map(author => author.id).includes(author.id)
+  const authorBooks = books.filter((book) =>
+    book.authors.map((author) => author.id).includes(author.id)
   );
 
   return (
@@ -41,7 +41,7 @@ const mapStateToProps = ({ authors, books }) => {
   return {
     authors,
     books,
-    loading: !authors.length || !books.length
+    loading: !authors.length || !books.length,
   };
 };
 

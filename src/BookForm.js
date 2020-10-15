@@ -4,19 +4,19 @@ import { connect } from "react-redux";
 // Actions
 import { postBook } from "./redux/actions";
 
-const BookForm = props => {
-  const [form, setForm] = useState({
+const BookForm = ({ authorID, postBook, closeModal }) => {
+  const [book, setBook] = useState({
     title: "",
     color: "",
-    authors: [props.authorID]
+    authors: [authorID],
   });
 
-  const onTextChange = event =>
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const onTextChange = (event) =>
+    setBook({ ...book, [event.target.name]: event.target.value });
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    props.postBook(form, props.closeModal);
+    postBook(book, closeModal);
   };
 
   const colorOptions = [
@@ -27,8 +27,8 @@ const BookForm = props => {
     "yellow",
     "black",
     "grey",
-    "purple"
-  ].map(color => (
+    "purple",
+  ].map((color) => (
     <option key={color} value={color}>
       {color}
     </option>
@@ -63,9 +63,9 @@ const BookForm = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    postBook: (book, closeModal) => dispatch(postBook(book, closeModal))
+    postBook: (book, closeModal) => dispatch(postBook(book, closeModal)),
   };
 };
 

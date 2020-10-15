@@ -4,21 +4,21 @@ import { connect } from "react-redux";
 // Actions
 import { postAuthor } from "./redux/actions";
 
-const AuthorForm = props => {
-  const [form, setForm] = useState({
+const AuthorForm = ({ closeModal, postAuthor }) => {
+  const [author, setAuthor] = useState({
     first_name: "",
     last_name: "",
     imageUrl: "",
-    books: []
+    books: [],
   });
 
-  const submitAuthor = event => {
+  const submitAuthor = (event) => {
     event.preventDefault();
-    props.postAuthor(form, props.closeModal);
+    postAuthor(author, closeModal);
   };
 
-  const onTextchange = event =>
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const onTextchange = (event) =>
+    setAuthor({ ...author, [event.target.name]: event.target.value });
 
   return (
     <div className="mt-5 p-2">
@@ -64,10 +64,10 @@ const AuthorForm = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     postAuthor: (newAuthor, closeModal) =>
-      dispatch(postAuthor(newAuthor, closeModal))
+      dispatch(postAuthor(newAuthor, closeModal)),
   };
 };
 

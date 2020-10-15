@@ -1,4 +1,4 @@
-import { SET_AUTHORS, ADD_AUTHOR } from "../actions/actionTypes";
+import { SET_AUTHORS, ADD_AUTHOR } from "../actions";
 
 const initialState = [];
 

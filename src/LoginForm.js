@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Login = props => {
-  const [form, setForm] = useState({
+const Login = () => {
+  const [userData, setUserData] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
-  const handleChange = event =>
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const handleChange = (event) =>
+    setUserData({ ...userData, [event.target.name]: event.target.value });
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     alert("I DON'T WORK YET");
   };
 
-  const { username, password } = form;
+  const { username, password } = userData;
 
   return (
     <div className="col-6 mx-auto">

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BookForm from "./BookForm";
 import Modal from "react-responsive-modal";
 
-const AddBookButton = props => {
+const AddBookButton = ({ authorID }) => {
   const [open, setOpen] = useState(false);
 
   const openModal = () => setOpen(true);
@@ -13,7 +13,7 @@ const AddBookButton = props => {
   return (
     <div>
       <Modal open={open} onClose={closeModal} center>
-        <BookForm authorID={props.authorID} closeModal={closeModal} />
+        <BookForm authorID={authorID} closeModal={closeModal} />
       </Modal>
       <input type="button" onClick={openModal} value="Add New Book!" />
     </div>
