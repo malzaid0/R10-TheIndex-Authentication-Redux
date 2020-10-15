@@ -2,10 +2,12 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+
 // Components
 import BookTable from "./BookTable";
 import AddBookModal from "./AddBookButton";
 import Loading from "./Loading";
+import ImageWithPlaceHolder from "./ImageWithPlaceHolder";
 
 const AuthorDetail = ({ authors, books, loading }) => {
   const { authorID } = useParams();
@@ -25,7 +27,7 @@ const AuthorDetail = ({ authors, books, loading }) => {
     <div className="author">
       <div>
         <h3>{authorName}</h3>
-        <img
+        <ImageWithPlaceHolder
           src={author.imageUrl}
           className="img-thumbnail img-fluid"
           alt={authorName}
