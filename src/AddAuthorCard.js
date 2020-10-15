@@ -3,7 +3,7 @@ import Modal from "react-responsive-modal";
 
 import AuthorForm from "./AuthorForm";
 
-const AddAuthorCard = props => {
+const AddAuthorCard = () => {
   const [open, setOpen] = useState(false);
 
   const openModal = () => setOpen(true);
@@ -21,7 +21,7 @@ const AddAuthorCard = props => {
         <div className="image">
           <img
             className="card-img-top img-fluid"
-            src="https://mbtskoudsalg.com/images/a-plus-png-2.png"
+            src="https://www.pngmart.com/files/8/Plus-PNG-Image.png"
             alt="+"
           />
         </div>
