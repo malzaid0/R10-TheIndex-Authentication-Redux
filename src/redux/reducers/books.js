@@ -1,4 +1,4 @@
-import { SET_BOOKS, ADD_BOOK } from "../actions/actionTypes";
+import { SET_BOOKS, ADD_BOOK } from "../actions";
 
 const initialState = [];
 
